@@ -5,37 +5,43 @@ const router = express.Router();
 const presidentes = [
     {
         id: Date.now(),
-        nome: 'Floriano Vieira Peixoto',
-        partido: 'Militar',
-        img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Floriano_Peixoto_%281891%29.jpg/214px-Floriano_Peixoto_%281891%29.jpg',
+        nome: 'Deodoro da Fonseca',
+        partido: 'Nenhum',
+        img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Deodoro_da_Fonseca_%281889%29.jpg/800px-Deodoro_da_Fonseca_%281889%29.jpg',
+        ano:'1889 - 1891 ',
+        governo: ' República da Espada',
+        descricao: ' Em meio a diversas crises que assolavam a monarquia brasileira, Deodoro liderou o golpe de Estado que depôs o Império e proclamou a república no país. Com a mudança de sistema de governo, Deodoro assumiu o comando do país na qualidade de chefe do Governo Provisório da República. As primeiras mudanças de seu governo envolviam a criação do Código Penal Brasileiro, a reforma do Código Comercial do Brasil e medidas que oficializavam a separação da Igreja e o Estado.'
+    },
+
+    {
+        id: Date.now(),
+        nome: 'Floriano Peixoto',
+        partido: 'Nenhum',
+        img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Floriano_Peixoto_%281891%29.jpg/220px-Floriano_Peixoto_%281891%29.jpg',
         ano:'1891 - 1894 ',
         governo: ' República da Espada',
-        descricao: ' Foi um militar e político brasileiro, primeiro vice-presidente e segundo presidente do Brasil, cujo governo abrange a maior parte do período da história brasileira ',
+        descricao: 'Seu governo foi marcado por um intenso clima de rebeliões.'
     },
 ]
-
 
 router.get('/', (req, res) => {
     res.send(presidentes);
 })
-
 
 router.get('/:id', (req, res) => {
     const idParam = req.params.id;
     const vaga = presidentes.find(presidente =>  presidente.id == idParam);
 
     if(!presidente) {
-        res.status(404).send({error: 'Presidente não encontrada'});
+        res.status(404).send({erro: 'Presidente não encontrada'});
         return;
     }
 
     res.send(presidente);
 })
 
-
 router.post('/add', (req, res) => {
     const presidente = req.body;
-
     //validação
     if(!presidente || !presidente.nome || !presidente.partido || presidente.imagem || presidente.ano) {
         res.status(400).send({
