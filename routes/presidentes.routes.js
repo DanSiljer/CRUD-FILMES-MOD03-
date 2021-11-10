@@ -9,8 +9,8 @@ const presidentes = [
         partido: 'Nenhum',
         img:'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Deodoro_da_Fonseca_%281889%29.jpg/800px-Deodoro_da_Fonseca_%281889%29.jpg',
         ano:'1889 - 1891 ',
-        governo: ' República da Espada',
-        descricao: 'Deodoro liderou o golpe de Estado que depôs o Império e proclamou a república no país. Com a mudança de sistema de governo, assumiu o comando do país na qualidade de chefe do Governo Provisório da República.'
+        governo: ' Governo Constitucional (eleitos por voto indireto)',
+        descricao: 'Deodoro da Fonseca foi o primeiro presidente do Brasil. Militar, ele assumiu o poder depois da Proclamação da República, em 1889. Foi o responsável pela primeira Constituição Republicana do país. Seu governo foi instável, pois era um momento de transição da monarquia para o regime republicano. Governou até 1891, quando ele renuncia ao cargo devido a graves problemas econômicos, como inflação, falência de bancos e fechamento de indústrias.'
     },
 
     {
@@ -19,8 +19,28 @@ const presidentes = [
         partido: 'Nenhum',
         img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Floriano_Peixoto_%281891%29.jpg/220px-Floriano_Peixoto_%281891%29.jpg',
         ano:'1891 - 1894 ',
-        governo: ' República da Espada',
-        descricao: 'Seu governo foi marcado por um intenso clima de rebeliões.'
+        governo: ' Governo Constitucional (eleitos por voto indireto)',
+        descricao: 'Assumiu a presidência em 1891, consolidando o regime republicano. Conhecido como Marechal de Ferro, junto com Deodoro da Fonseca governou no período chamado República da Espada, pois os dois eram militares. Reprimiu revoltas populares que exigiam novas eleições, pois ele assumiu o cargo por ser vice-presidente de Deodoro, sem eleições diretas. Apesar disso, conseguiu reduzir em parte os impostos, aluguéis e produtos, o que melhorou um pouco a vida da população. Enfrentou a insatisfação da elite cafeeira e revoltas como a Revolução Federalista e a Revolta Armada.'
+    },
+
+    {
+        id: Date.now(),
+        nome: 'Campos Salles ',
+        partido: '',
+        img:'https://s.ebiografia.com/img/ca/mp/campos_sales_c.jpg',
+        ano:'1898 a 1902',
+        governo: 'Governo Constitucional (eleitos por voto popular)',
+        descricao: 'Fazendeiro e advogado, Campos Salles representava a oligarquia cafeeira de São Paulo. Assume o poder em 1898, em meio a uma enorme crise econômica, dívida externa e redução dos preços do café para exportação. Por isso, Salles adota medidas para conter a crise, aumentando impostos e cancelando obras públicas, o que afetou fortemente os setores pobres do país..'
+    },
+
+    {
+        id: Date.now(),
+        nome: 'Rodrigues Alves ',
+        partido: '',
+        img:'https://s.ebiografia.com/img/ro/dr/rodrigues_alves_3_c.jpg',
+        ano:'1902 a 1906',
+        governo: 'Governo Constitucional (eleitos por voto popular)',
+        descricao: 'O primeiro presidente eleito do século XX no Brasil foi Rodrigues Alves, também pertencente à elite cafeeira paulista. Em seu mandato teve destaque estímulos à reurbanização, políticas de saneamento básico e modernização. Entretanto, para concluir esses planos, desalojou populações carentes a fim de construir estradas e obras, o que resultou na origem das favelas. Ele foi também o responsável, com o apoio do médico Oswaldo Cruz, pela Lei da Vacinação Obrigatória, que, imposta sem uma prévia conscientização da população, gerou a Revolta da Vacina, em 1904.'
     },
 ]
 
@@ -75,7 +95,7 @@ router.post('/add', (req, res) => {
     }
 
     res.send({
-        message: `Presidente ${Presidentes[index].nome} atualizado com sucesso`,
+        message: `Presidente ${presidentes[index].nome} atualizado com sucesso`,
         data: presidentes[index]
     })
 })
